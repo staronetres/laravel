@@ -27,13 +27,74 @@ Route::get('/about', function (){
 });
 
 
+
+Route::get('/contact', function (){
+    return view('front/contact');
+});
+
+
+Route::get('/products', function (){
+    return view('front/shop');
+});
+
+Route::get('/product_details/{id}', 'HomeController@product_details');
+
+Route::get('/cart', 'CartController@index');
+
+Route::get('/cart/addItem/{id}', 'CartController@addItem');
+
 Route::get('/shop', function (){
     return view('front/shop');
 });
+Route::get('/shop','HomeController@shop');
 
-Route::get('/products', funtion (){
-    return view('front/shop');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('home', 'HomeController@contact')->name('contactus');
+
+Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
+
+  Route::get('/', function () {
+    return view('admin.index');
+  })->name('admin.index');
+
+   Route::POST('/admin/store', 'AdminController@store');
+
+  Route::get('/admin', 'AdminController@index');
+
+
+ Route::resource('product','ProductsController');
+
+});
+
+Route::get('/cart/addItem/{id}', 'HomeController@product_details');
+
+
+Route::get('/cart/addItem/{id}', 'CartController@addItem');
+
+Route::get('/cart/remove/{id}', 'CartController@destroy');
+
+Route::put('/cart/update/{id}', 'CartController@update');
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+
+
+
+
+Route::group(['middleware' => 'auth'], function() {
+
+    Route::get('/checkout', 'CheckoutController@index');
+    Route::post('/formvalidate', 'CheckoutController@formvalidate');
+    Route::get('/orders', 'ProfileController@orders');
+    Route::get('/address', 'ProfileController@address');
+
+     Route::get('/thankyou', function() {
+        return view('profile.thankyou');
+    });
+
 });
 
 
-// Route::get('/shop','HomeController@shop');

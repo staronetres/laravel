@@ -56,3 +56,19 @@ footer {
 footer p {
   margin-bottom: .25rem;
 }
+
+
+.btn-primary {
+    color: #fff;
+   
+    border-color: #007bff;
+
+    a {
+    color: #fff !important;
+    
+}
+}
+
+.addcart {
+    color: #f7f8f9 !important;
+}

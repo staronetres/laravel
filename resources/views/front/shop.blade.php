@@ -1,9 +1,11 @@
- @extends('front.master')
+@extends('front.master')
  @section('content')
 
 
  <main role="main">
-
+<br>
+<br>
+<br>
       <section class="jumbotron text-center">
         <div class="container">
           <h1 class="jumbotron-heading">Album example</h1>
@@ -16,50 +18,38 @@
       </section>
 
       <div class="album text-muted">
-        <div class="container">
 
-          <div class="row">
-            <div class="card">
-              <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card">
-              <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card">
-              <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
+      <div class="container">
+       
+        <div class="row">
+         @forelse($products as $product)
+           
+          <div class="card" style="width:30rem height: 20rem">
+         
+             <img src="{{url('images',$product->image)}}" class="card-img">
+            
+          
 
-            <div class="card">
-              <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card">
-              <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card">
-              <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-
-            <div class="card">
-              <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card">
-              <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card">
-              <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
+            <p class="card-text">{{$product->pro_name}}</p>
+             
+            <button class="btn btn-primary addcart">
+             <a href="{{url('/product_details')}}/<?php echo $product->id; ?>" class="add-to-cart addcart">View Product</a>
+           </button>
+            
+            <button class="btn btn-primary btn-sm">
+             <a href="{{url('/cart/addItem')}}/<?php echo $product->id; ?>" class="add-to-cart addcart">Add ToCart<i class="fa fa-shopping-cart"></i></a>
+            </button>
+         
+          
           </div>
-
+          @empty
+            <h3>No Shirts</h3>
+            @endforelse
+          </div>
+         </div>
+         
         </div>
+
       </div>
 
     </main>

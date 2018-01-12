@@ -1,0 +1,14 @@
+.btn-primary {
+    color: #fff;
+    background-color: #ecf0f5;
+    border-color: #007bff;
+
+    a {
+    color: #fff !important;
+    
+}
+}
+
+.addcart {
+    color: #f7f8f9 !important;
+}
