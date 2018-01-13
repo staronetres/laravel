@@ -30,10 +30,7 @@
           <li class="nav-item">
             <a class="nav-link disabled" href="{{url('/contact')}}">Contact Us</a>
           </li>
-          
-        </ul>
-        <ul>
-        <li class="nav-item dropdown">
+           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
             <?php if (Auth::check()) { ?>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -47,7 +44,9 @@
                <?php } ?>
             </div>
           </li>
-         </ul>
+
+        </ul>
+        
          <li class="list-inline-item"><a href="{{url('/cart')}}"><i class="fa fa-shopping-cart">View Cart</i>({{Cart::count()}}) ({{Cart::total()}})</a></li>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">

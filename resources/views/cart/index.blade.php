@@ -28,6 +28,18 @@ $(document).ready(function(){
 });
 </script>
 <?php if ($cartItems->isEmpty()) { ?>
+
+
+
+
+
+
+<br>
+
+<br>
+
+<br>
+
     <section id="cart_items">
         <div class="container">
             <div class="breadcrumbs">
@@ -84,7 +96,7 @@ $(document).ready(function(){
                                 
                        
                          <p><img src="{{url('images',$cartItem->options->img)}}" class="card-img-top bmw" ></p>
-
+                          
                      
                                
                             </td>

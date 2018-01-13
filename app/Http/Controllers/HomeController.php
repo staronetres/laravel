@@ -46,7 +46,7 @@ class HomeController extends Controller
     }
 
     public function product_details($id)
-
+       
 
     {
         $products = Product::findOrFail($id);

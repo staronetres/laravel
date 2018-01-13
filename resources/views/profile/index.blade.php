@@ -6,6 +6,10 @@
     table td { padding:10px
     }</style>
 
+<br>
+<br>
+<br>
+<br>
 
 <section id="cart_items">
    <div class="container">
@@ -50,8 +54,8 @@
                   
                   <tr>
                   <td>      <a href="{{url('/')}}/orders" class="btn btn-success">My Orders</a></td>
-                  <td>      <a href="" class="btn btn-success">My Address</a></td>
-                  <td>      <a href="" class="btn btn-success">Change Password</a></td>
+                  <td>      <a href="{{url('/address')}}" class="btn btn-success">My Address</a></td>
+                  <td>      <a href="{{url('/password')}}" class="btn btn-success">Change Password</a></td>
                   </tr>
                   </table>
                  * 

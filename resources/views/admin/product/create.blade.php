@@ -83,6 +83,11 @@
                 {{ Form::text('pro_info', null, array('class' => 'form-control')) }}
             </div>
 
+            <div class="form-group">
+                 {{ Form::label('category_id', 'Categories') }}
+                 {{ Form::select('category_id', $categories, null, ['class' => 'form-control', 'placeholder'=>'SelectCategory']) }}
+            </div>
+
            
             <div class="form-group">
                 {{ Form::label('image', 'Image') }}

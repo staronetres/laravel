@@ -28,19 +28,19 @@
          
              <img src="{{url('images',$product->image)}}" class="card-img">
             
-          
+          <div class="card-body">
 
             <p class="card-text">{{$product->pro_name}}</p>
              
-            <button class="btn btn-primary addcart">
+            <button class="btn btn-primary btn-sm">
              <a href="{{url('/product_details')}}/<?php echo $product->id; ?>" class="add-to-cart addcart">View Product</a>
            </button>
             
-            <button class="btn btn-primary btn-sm">
+            <button class="btn btn-primary btn-sm float-right">
              <a href="{{url('/cart/addItem')}}/<?php echo $product->id; ?>" class="add-to-cart addcart">Add ToCart<i class="fa fa-shopping-cart"></i></a>
             </button>
          
-          
+          </div>
           </div>
           @empty
             <h3>No Shirts</h3>

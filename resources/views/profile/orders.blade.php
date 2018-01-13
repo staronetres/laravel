@@ -3,7 +3,10 @@
 <style>
     table td { padding:10px
     }</style>
-
+<br>
+<br>
+<br>
+<br>
 
 
 <section id="cart_items">
@@ -21,14 +24,7 @@
 
 
         <div class="col-md-4 well well-sm">
-          <ul class="nav navbar">
-          <h3 class="">Quick Links</h3>
-          <li>My Profile</li>
-          <li>My Orders</li>
-          <li>My Address</li>
-
-          <li>Change Password</li>
-          </ul>
+          @include('profile.menu')
 
 
         </div>

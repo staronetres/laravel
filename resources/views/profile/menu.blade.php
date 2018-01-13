@@ -7,6 +7,6 @@
   <a class="nav-link" href="{{'/orders'}}">My Orders</a>
   <a class="nav-link" href="{{'/address'}}">My Address</a>
 
-  <a class="nav-link" href="#">Change Password</a>
+   <a class="nav-link" href="{{url('/password')}}">Change Password</a>
 </nav>
 </div>

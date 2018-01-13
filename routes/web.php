@@ -66,6 +66,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
 
  Route::resource('product','ProductsController');
+ Route::resource('category','CategoriesController');
 
 });
 
@@ -90,6 +91,15 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/formvalidate', 'CheckoutController@formvalidate');
     Route::get('/orders', 'ProfileController@orders');
     Route::get('/address', 'ProfileController@address');
+    Route::post('/updateAddress', 'ProfileController@UpdateAddress');
+
+    Route::get('/password', 'ProfileController@Password');
+
+    Route::post('/updatePassword', 'ProfileController@updatePassword');
+
+    Route::get('/profile', function() {
+        return view('profile.index');
+    });
 
      Route::get('/thankyou', function() {
         return view('profile.thankyou');

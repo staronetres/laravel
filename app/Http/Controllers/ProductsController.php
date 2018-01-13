@@ -15,15 +15,22 @@ use Illuminate\Http\Request;
 
 use Storage;
 
-use App\pro_cat;
+
 
 use Image;
 
 use App\products_properties;
 
+
 class ProductsController extends Controller
 {
-    //
+
+
+
+   //    public function index()
+   // {
+   //  return view('admin.index');
+   // }
 
      public function index()
     {
@@ -31,22 +38,53 @@ class ProductsController extends Controller
         return view('admin.product.index',compact('products'));
     }
 
+   // public function cats() {
+   //   return view('admin.index');
+   // }
 
+   // public function index() {
+   
+   //    $cat_data = DB::table('pro_cat')->get();
+   //    // $Products = DB::table('products')->get();
+   //    // $cat_data=Pro_cat::all();
+   //      // return view('admin.home');
+   //      return view('admin.home', compact('cat_data'));
+   //  }
 
-
-
-
-
-    public function create()
+   public function create()
     {
-        
-        return view('admin.product.create');
+        $categories=Category::pluck('name','id');
+        return view('admin.product.create',compact('categories'));
     }
 
+    //  public function home()
+    // {
+    //   $cat_data = DB::table('pro_cat')->get();
+    //     // return view('admin.home');
+    //     return view('admin.home', compact('cat_data'));
+    // }
+
+    // public function addpro_form(){
+    //   $cat_data = DB::table('pro_cat')->get();
+
+    //   return view('admin.home', compact('cat_data'));
+    // }
+
+
+    //  public function cats()
+    // {
+    //     return view('admin.home');
+    // }
+
+    // public function addpro_form(){
+    //   $cat_data = DB::table('pro_cat')->get();
+
+    //   return view('admin.home', compact('cat_data'));
+    // }
 
 
 
-    public function store(Request $request) 
+   public function store(Request $request) 
 
     {
 
@@ -72,14 +110,12 @@ class ProductsController extends Controller
             $formInput['image']=$imageName;
         }
      
+        $categories=Category::all();
         Product::create($formInput);
         // return redirect()->route('admin.index');
         return redirect()->back();
 
 }
-
-
-
 
 
 public function show($id)
@@ -90,5 +126,10 @@ public function show($id)
         // var_dump($product);
     }
 
-}
 
+
+    
+
+
+
+}

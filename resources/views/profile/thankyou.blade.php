@@ -3,7 +3,14 @@
  <style>
     table td { padding:10px
     }</style>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 
@@ -12,7 +19,7 @@
         <div class="breadcrumbs">
             <ol class="breadcrumb">
                 <li></li>
-                <li class="active">Dashboard</li>
+                <li class="active"></li>
 <h3><span style='color:green'>{{ucwords(Auth::user()->name)}}</span>, Welcome</h3>
             </ol>
         </div><!--/breadcrums-->
