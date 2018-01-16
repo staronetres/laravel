@@ -40,7 +40,7 @@
                             <th>Order Total</th>
                             <th>Order Status</th>
 
-                            <th>Details</th>
+                           
 
                         </tr>
                     </thead>
@@ -53,7 +53,7 @@
                             <td>{{$order->pro_code}}</td>
                             <td>{{$order->total}}</td>
                             <td>{{$order->status}}</td>
-                            <td>View</td>
+                           
                         </tr>
                         @endforeach
                     </tbody>

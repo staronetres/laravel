@@ -1,10 +1,9 @@
 .btn-primary {
-    color: #fff;
-    background-color: #ecf0f5;
+    
+ 
     border-color: #007bff;
 
-    a {
-    color: #fff !important;
+    
     
 }
 }
@@ -19,3 +18,5 @@
         width: 60%;
 }
 }
+
+

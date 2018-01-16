@@ -54,6 +54,9 @@
 
 <h2 class="product-title">
  <h2><?php echo ucwords($products->pro_name);?></h2>
+ <h5>{{$products->pro_info}}</h5>
+
+ <h2>${{$products->spl_price}}</h2>
  </h2>
 
  

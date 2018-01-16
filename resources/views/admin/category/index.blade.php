@@ -1,6 +1,7 @@
 @extends('admin.master')
 @section('content')
-
+<main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
+<h3>Products</h3>
 <div class="navbar">
         <a class="navbar-brand" href="#">Categories =></a>
         <ul class="nav navbar-nav">
@@ -65,5 +66,6 @@
 
         </tbody>
     </table>
+    </main>
     @endif
 @endsection

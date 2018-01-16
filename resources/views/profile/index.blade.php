@@ -20,8 +20,7 @@
                 <div class="col-md-4 well well-sm">
 
                 <nav class="nav flex-column">
-                 <a class="nav-link" href="{{url('/')}}">Home</a>
-                 <a class="nav-link" href="{{url('/profile')}}">My Profile</a>
+                
                  
 
                
