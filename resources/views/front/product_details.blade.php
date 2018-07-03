@@ -58,7 +58,7 @@
 
  <h2>${{$products->spl_price}}</h2>
  </h2>
-
+ <p><b>Availability:</b>{{$products->stock}} In Stock</p>
  
 <button class="btn btn-primary btn-sm">
 <a href="{{url('/cart/addItem')}}/<?php echo $products->id; ?>" class="add-to-cart addcart">Add ToCart<i class="fa fa-shopping-cart"></i></a>

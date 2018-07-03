@@ -73,10 +73,16 @@
                 {{ Form::text('pro_code', null, array('class' => 'form-control')) }}
             </div>
 
+             <div class="form-group">
+                {{ Form::label('stock', 'stock') }}
+                {{ Form::text('stock', null, array('class' => 'form-control')) }}
+              </div>
+
             <div class="form-group">
                 {{ Form::label('price', 'Price') }}
                 {{ Form::text('pro_price', null, array('class' => 'form-control')) }}
             </div>
+
 
              <div class="form-group">
                 {{ Form::label('Description', 'Description') }}
