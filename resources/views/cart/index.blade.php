@@ -105,8 +105,8 @@ $(document).ready(function(){
                             
                             <td class="cart_description">
                             <a href="{{url('/product_details')}}/{{$cartItem->id}}">
-                            <div class="card" style="width:10rem height: 20rem">
-             <img src="{{url('images',$cartItem->img)}}" class="card-img">
+                            
+             
                                 <br>
                             </div>
                                 <h4><a href="{{url('/product_details')}}/{{$cartItem->id}}" style="color:blue">{{$cartItem->name}}</a></h4>
@@ -122,7 +122,7 @@ $(document).ready(function(){
                                     <input type="hidden" id="proId<?php echo $count;?>" value="{{$cartItem->id}}"/>
                                       <input type="hidden" name="proId" value="{{$cartItem->id}}"/>
                                     <input type="number" size="2" value="{{$cartItem->qty}}" name="qty" id="upCart<?php echo $count;?>"
-                                           autocomplete="off" style="text-align:center; max-width:50px; "  MIN="1" MAX="30">
+                                           autocomplete="off" style="text-align:center; max-width:50px; "  MIN="1" MAX="1000">
                                     <br>
                                     <input type="submit" class="btn btn-primary" value="Update" styel="margin:5px">
                              {!! Form::close() !!}
