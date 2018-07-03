@@ -28,18 +28,9 @@ $(document).ready(function(){
 });
 </script>
 <?php if ($cartItems->isEmpty()) { ?>
-
-
-
-
-
-
 <br>
-
 <br>
-
 <br>
-
     <section id="cart_items">
         <div class="container">
             <div class="breadcrumbs">
@@ -101,7 +92,7 @@ $(document).ready(function(){
                                
                             </td>
                            
-                           {!! Form::open(['url' => ['cart/update',$cartItem->rowId], 'method'=>'put']) !!}
+                           
                             
                             <td class="cart_description">
                             <a href="{{url('/product_details')}}/{{$cartItem->id}}">
@@ -117,14 +108,20 @@ $(document).ready(function(){
                                 <p>${{$cartItem->price}}</p>
                             </td>
                             <td class="cart_quantity">
-                                <div class="cart_quantity_button">
-                                  <input type="hidden" id="rowId<?php echo $count;?>" value="{{$cartItem->rowId}}"/>
-                                    <input type="hidden" id="proId<?php echo $count;?>" value="{{$cartItem->id}}"/>
-                                      <input type="hidden" name="proId" value="{{$cartItem->id}}"/>
-                                    <input type="number" size="2" value="{{$cartItem->qty}}" name="qty" id="upCart<?php echo $count;?>"
+                              {!! Form::open(['url' => ['cart/update',$cartItem->rowId], 'method'=>'put']) !!}
+
+
+                               <input type="hidden" name="proId" value="{{$cartItem->id}}"/>
+
+
+
+                               <input type="number" size="2" value="{{$cartItem->qty}}" name="qty" id="upCart<?php echo $count;?>"
                                            autocomplete="off" style="text-align:center; max-width:50px; "  MIN="1" MAX="1000">
-                                    <br>
-                                    <input type="submit" class="btn btn-primary" value="Update" styel="margin:5px">
+
+
+
+                                    
+                                  <input type="submit" class="btn btn-primary" value="Update" styel="margin:5px">  
                              {!! Form::close() !!}
                           
                                 </div>

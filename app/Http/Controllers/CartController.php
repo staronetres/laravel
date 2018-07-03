@@ -34,10 +34,32 @@ class CartController extends Controller
         return back();
     }
 
+   // public function  update(Request $request, $id){
+     
+   //    Cart::update($id, $request->qty);
+   //    return back();
+   //  }
+
+    
    public function  update(Request $request, $id){
      
-      Cart::update($id, $request->qty);
-      return back();
-    }
+      $qty = $request->qty;
+      $proId = $request->proId;
+      $product = product::find($proId);
+      $stock = $product->stock;
+     
+
+
+      if($qty<$stock) {
+          $msg = 'Cart is updated';
+         Cart::update($id, $request->qty);
+         return back()->with('status', $msg);
+      } else{
+         $msg = 'Please check your qty is more than product stock';
+         return back()->with('error', $msg);
+   
+      }
+
+      }
 
 }
