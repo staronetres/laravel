@@ -7,6 +7,7 @@ use App\Product;
 use App\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\wishList;
 
 class HomeController extends Controller
 {
@@ -49,11 +50,41 @@ class HomeController extends Controller
        
 
     {
-        $products = Product::findOrFail($id);
+
+
+
+        // $products = Product::findOrFail($id);
        
-        return view('front.product_details', compact('products'));
+        // return view('front.product_details', compact('products'));
+
+        //  $products = DB::table('products')->where('id',$id)->get();
+        // return view('front.product_details', compact('products'));
+
+
+        $Products = DB::table('products')->where('id',$id)->get();
+        return view('front.product_details', compact('Products'));
         
     }
+
+    public function wishlist(Request $request) {
+
+        $wishList = new wishlist;
+        $wishList->user_id = Auth::user()->id;
+        $wishList->pro_id = $request->pro_id;
+
+        $wishList->save();
+
+        $Products = DB::table('products')->where('id', $request->pro_id)->get();
+
+        return view('front.product_details', compact('Products'));
+    }
+
+    public function View_wishList() {
+
+        $Products = DB::table('wishlist')->leftJoin('products', 'wishlist.pro_id', '=', 'products.id')->get();
+        return view('front.wishList', compact('Products'));
+    }
+
 
     // public function shop()
     // {

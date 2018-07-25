@@ -15,6 +15,58 @@
     <link rel="stylesheet" href="{{asset('dist/css/custom.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/carousel.css')}}">
     <link href="{{asset('dist/css/bootstrap.css')}}" rel="stylesheet">
+
+
+    <!-- CSS From Vivid -->
+    
+    <link href="{{asset('dist/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('dist/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{asset('dist/css/prettyPhoto.css')}}" rel="stylesheet">
+    <link href="{{asset('dist/css/price-range.css')}}" rel="stylesheet">
+     <link href="{{asset('dist/css/animate.css')}}" rel="stylesheet">
+     <link href="{{asset('dist/css/main.css')}}">
+     <link href="{{asset('dist/css/responsive.css')}}" rel="stylesheet">
+     <link href="{{asset('dist/css/jquiry-ui.css')}}" rel="stylesheet">
+     <script src="{{asset('dist/js/vendor/jquery.min.js')}}"></script>
+     <script src="{{asset('dist/js/vendor/jquery-1.12.4.js')}}"></script>
+     <script src="{{asset('dist/js/vendor/jquery-ui.js')}}"></script>
+    <!-- End Vivid -->
+
+
+       <!-- JS From Vivid -->
+
+      <script src="{{asset('dist/js/jquery.js')}}"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+     <script src="{{asset('dist/js/bootstrap.min.js')}}"></script>
+
+
+
+    <script src="js/jquery.scrollUp.min.js"></script>
+
+
+
+    <script src="{{asset('dist/js/jquery.scrollUp.min.js')}}"></script>
+
+
+    <script src="js/price-range.js"></script>
+
+
+    <script src="{{asset('dist/js/price-range.js')}}"></script>
+
+    <script src="js/jquery.prettyPhoto.js"></script>
+
+    <script src="{{asset('dist/js/jquery.prettyPhoto.js')}}"></script>
+
+
+    <script src="js/main.js"></script>
+
+    <script src="{{asset('dist/js/main.js')}}"></script>
+
+
+
+
+       <!-- JS From Vivid -->
     <!-- Custom styles for this template -->
     <link href="album.css" rel="stylesheet">
   </head>
