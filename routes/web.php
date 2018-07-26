@@ -60,6 +60,8 @@ Route::post('addToWishList', 'HomeController@wishList')->name('addToWishList');
 
 Route::get('/WishList', 'HomeController@View_wishList');
 
+Route::get('/removeWishList/{id}', 'HomeController@removeWishList');
+
 
 
 

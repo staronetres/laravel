@@ -85,6 +85,13 @@ class HomeController extends Controller
         return view('front.wishList', compact('Products'));
     }
 
+    public function removeWishList($id) {
+
+        DB::table('wishlist')->where('pro_id', '=', $id)->delete();
+
+        return back()->with('msg', 'Item Removed from Wishlist');
+    }
+
 
     // public function shop()
     // {

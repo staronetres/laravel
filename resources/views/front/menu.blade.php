@@ -30,6 +30,8 @@
           <li class="nav-item">
             <a class="nav-link disabled" href="{{url('/contact')}}">Contact Us</a>
           </li>
+
+          <li class="nav-item"><a class="nav-link" href="{{url('/WishList')}}"><i class="fa fa-star"></i> Wishlist <span style="color:green; font-weight:bold"> ({{App\wishList::count()}})</span> </a></li>
            <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
             <?php if (Auth::check()) { ?>

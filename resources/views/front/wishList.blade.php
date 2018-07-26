@@ -177,12 +177,12 @@
                                     </div>
                                     
                                 </div>
-                                <div class="choose">
-                                    <ul class="nav nav-pills nav-justified">
-                                        <li><a href="{{url('/')}}/removeWishList/{{$product->id}}" style="color:red"><i class="fa fa-minus-square"></i>Remove from wishlist</a></li>
+                               
 
-                                    </ul>
-                                </div>
+                              
+                            <a href="{{url('/')}}/removeWishList/{{$product->id}}" style="color:red" class="btn btn-default btn-block"><i class="fa fa-minus-square"></i>Remove from wishlist</a></li>
+
+                                 
                             </div>
                         </div>
                         @endforeach
