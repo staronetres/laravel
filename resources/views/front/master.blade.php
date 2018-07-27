@@ -10,6 +10,49 @@
     <title>Album example for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
+
+    <style type="text/css">
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .slider {
+        width: 50%;
+        margin: 100px auto;
+    }
+
+    .slick-slide {
+      margin: 0px 20px;
+    }
+
+    .slick-slide img {
+      width: 100%;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+      color: black;
+    }
+
+
+    .slick-slide {
+      transition: all ease-in-out .3s;
+      opacity: .2;
+    }
+    
+    .slick-active {
+      opacity: .5;
+    }
+
+    .slick-current {
+      opacity: 1;
+    }
+  </style>
     
     <link rel="stylesheet" href="{{asset('dist/css/album.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/custom.css')}}">
@@ -19,49 +62,55 @@
 
     <!-- CSS From Vivid -->
     
-    <link href="{{asset('dist/css/bootstrap.min.css')}}" rel="stylesheet">
+     <link href="{{asset('dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('dist/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('dist/css/prettyPhoto.css')}}" rel="stylesheet">
     <link href="{{asset('dist/css/price-range.css')}}" rel="stylesheet">
      <link href="{{asset('dist/css/animate.css')}}" rel="stylesheet">
-     <link href="{{asset('dist/css/main.css')}}">
+     <link href="{{asset('dist/css/main.css')}}" rel="stylesheet">
      <link href="{{asset('dist/css/responsive.css')}}" rel="stylesheet">
-     <link href="{{asset('dist/css/jquiry-ui.css')}}" rel="stylesheet">
      <script src="{{asset('dist/js/vendor/jquery.min.js')}}"></script>
-     <script src="{{asset('dist/js/vendor/jquery-1.12.4.js')}}"></script>
-     <script src="{{asset('dist/js/vendor/jquery-ui.js')}}"></script>
+   
     <!-- End Vivid -->
+
+
+    <!-- Slick From Vivid -->
+   <!--  <link href="{{asset('dist/css/slick.css')}}"> -->
+    <link href="{{asset('dist/css/slick-theme.css')}}">
+    <link href="{{asset('dist/js/slick.js')}}">
+    <link href="{{asset('dist/js/jquery-3.2.1.js')}}">
+    <!-- <link href="{{asset('dist/js/slick.min.js')}}"> -->
+     <!-- JS From Vivid -->
 
 
        <!-- JS From Vivid -->
 
       <script src="{{asset('dist/js/jquery.js')}}"></script>
-    <script src="js/bootstrap.min.js"></script>
+   
 
      <script src="{{asset('dist/js/bootstrap.min.js')}}"></script>
 
 
 
-    <script src="js/jquery.scrollUp.min.js"></script>
+
 
 
 
     <script src="{{asset('dist/js/jquery.scrollUp.min.js')}}"></script>
 
 
-    <script src="js/price-range.js"></script>
 
 
     <script src="{{asset('dist/js/price-range.js')}}"></script>
 
-    <script src="js/jquery.prettyPhoto.js"></script>
+  
 
     <script src="{{asset('dist/js/jquery.prettyPhoto.js')}}"></script>
 
 
-    <script src="js/main.js"></script>
+   <script src="{{asset('dist/js/main.js')}}"></script>
 
-    <script src="{{asset('dist/js/main.js')}}"></script>
+    
 
 
 
@@ -112,17 +161,71 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../../../dist/js/bootstrap.min.js"></script>
-    <script src="../../../../assets/js/vendor/holder.min.js"></script>
-    <script>
-      Holder.addTheme('thumb', {
-        bg: '#55595c',
-        fg: '#eceeef',
-        text: 'Thumbnail'
+   
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+  <script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(document).on('ready', function() {
+      $(".vertical-center-4").slick({
+        dots: true,
+        vertical: true,
+        centerMode: true,
+        slidesToShow: 4,
+        slidesToScroll: 2
       });
-    </script>
+      $(".vertical-center-3").slick({
+        dots: true,
+        vertical: true,
+        centerMode: true,
+        slidesToShow: 3,
+        slidesToScroll: 3
+      });
+      $(".vertical-center-2").slick({
+        dots: true,
+        vertical: true,
+        centerMode: true,
+        slidesToShow: 2,
+        slidesToScroll: 2
+      });
+      $(".vertical-center").slick({
+        dots: true,
+        vertical: true,
+        centerMode: true,
+      });
+      $(".vertical").slick({
+        dots: true,
+        vertical: true,
+        slidesToShow: 3,
+        slidesToScroll: 3
+      });
+      $(".regular").slick({
+        dots: true,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3
+      });
+      $(".center").slick({
+        dots: true,
+        infinite: true,
+        centerMode: true,
+        slidesToShow: 5,
+        slidesToScroll: 3
+      });
+      $(".variable").slick({
+        dots: true,
+        infinite: true,
+        variableWidth: true
+      });
+      $(".lazy").slick({
+        lazyLoad: 'ondemand', // ondemand progressive anticipated
+        infinite: true
+      });
+    });
+</script>
+
+
+    
+
+    @yield('scripts')
   </body>
 </html>

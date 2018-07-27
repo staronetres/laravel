@@ -8,6 +8,7 @@ use App\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\wishList;
+use App\recommends;
 
 class HomeController extends Controller
 {
@@ -51,7 +52,13 @@ class HomeController extends Controller
 
     {
 
-
+        
+        if(Auth::check()){
+        $recommends = new recommends;
+        $recommends ->uid = Auth::user()->id;
+        $recommends ->pro_id = $id;
+        $recommends ->save();
+        }
 
         // $products = Product::findOrFail($id);
        

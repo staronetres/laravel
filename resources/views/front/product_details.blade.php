@@ -156,4 +156,16 @@
                     </div><!-- /.container -->
                 </div>
 
+                <!-- Recommends table -->
+
+
+               <div class="recommended_items"><!--recommended_items-->
+                        <h2 class="title text-center">recommended items</h2>
+
+                @include('front.recommends')
+
+                  </div><!--/recommended_items-->
+                    
+                </div>
+
 @endsection
