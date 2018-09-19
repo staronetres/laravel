@@ -83,6 +83,28 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
     Route::post('editProducts/{id}', 'ProductsController@editProducts')->name('editProducts');
 
+ Route::get('EditImage/{id}', 'ProductsController@ImageEditForm')->name('ImageEditForm');
+
+  // Route::get('ImageEditForm/{id}', 'ProductsController@ImageEditForm')->name('ImageEditForm');
+
+
+
+     Route::post('editProImage', 'ProductsController@editProImage')->name('editProImage');
+
+
+      Route::resource('admin/product', 'ProductsController',['names'=>[
+
+        'index'=>'admin.product.index',
+        // 'create'=>'admin.posts.create',
+        // 'store'=>'admin.posts.store',
+        // 'update'=>'admin.product.update'
+
+
+
+   // Route::PATCH('editProducts', 'ProductsController@editProduct')->name('editProducts');
+
+    ]]);
+
 });
 
 Route::get('/cart/addItem/{id}', 'HomeController@product_details');

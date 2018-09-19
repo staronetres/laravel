@@ -192,6 +192,47 @@ public function editProducts(Request $request, $id) {
 
 
 
+    public function ImageEditForm($id) {
+
+        $Products = Product::findOrFail($id);
+        
+        return view('admin.product.ImageEditForm', compact('Products'));
+    }
+
+public function editProImage(Request $request) {
+
+
+        $proid = $request->id;
+
+
+        $image=$request->image;
+        if($image){
+            $imageName=$image->getClientOriginalName();
+            $image->move('images',$imageName);
+            $formInput['image']=$imageName;
+        }
+
+
+       
+
+
+        DB::table('products')->where('id', $proid)->update(['image' => $imageName]);
+       
+
+        return redirect()->back();
+        
+    }
+
+
+       
+
+
+       
+
+
+
+
+
 
 
     

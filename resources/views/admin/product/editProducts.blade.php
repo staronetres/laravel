@@ -98,6 +98,19 @@
 
 
 
+<div class="col-md-3">
+
+ <h1>Change Image</h1>
+      <img class="card-img-top img-fluid" src="{{url('images',$Products->image)}}" style="width:200px" alt="Card image cap">
+
+      <p><a href="{{route('ImageEditForm',$Products->id)}}"
+       class="btn btn-info">Change Image</a>
+        </p>
+</div>
+
+</div>
+
+
 
 </div>
 
