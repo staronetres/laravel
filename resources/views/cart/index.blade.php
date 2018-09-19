@@ -132,7 +132,7 @@ $(document).ready(function(){
                             <td class="cart_delete">
                                <button class="btn btn-primary">
                                 <a class="cart_quantity_delete" style="background-color:red"
-                                   href="{{url('/cart/remove')}}/{{$cartItem->rowId}}"><i class="fa fa-times">X</i></a>
+                                   href="{{url('/cart/remove')}}/{{$cartItem->rowId}}"><i class="fa fa-times"></i></a>
                                    </button>
                             </td>
                         </tr>
