@@ -224,6 +224,16 @@ public function editProImage(Request $request) {
     }
 
 
+public function destroy($id)
+    {
+        //
+          Product::findOrFail($id)->delete();
+
+        return redirect()->back();
+    }
+
+
+
        
 
 

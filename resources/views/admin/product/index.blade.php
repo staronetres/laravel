@@ -37,6 +37,13 @@
                     <td style="width:50px;">{{$product->pro_price}} </td>
                     <td style="width:50px;">{{$product->category_id}}</td>
                     <td><a href="{{route('ProductEditForm',$product->id)}}" class="btn btn-success btn-small">Edit</a></td>
+
+                    {!! Form::open(['method'=>'DELETE', 'action'=> ['ProductsController@destroy', $product->id]]) !!}
+
+
+                      <td>  {!! Form::submit('Delete Product', ['class'=>'btn btn-danger col-sm-6']) !!}</td> 
+
+                    {!! Form::close() !!}
                 </tr>
                 @endforeach
             </tbody>
