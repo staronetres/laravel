@@ -1,60 +1,118 @@
- 
-
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-     <a href="{{url('/')}}" class="navbar-brand"><img src="{{URL::asset('dist/img/ecom.png')}}" alt="..."></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container">
+      <a href="{{url('/')}}" class="navbar-brand">GlozzomEcom</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+     
+      <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-        
+          <li class="nav-item active">
+            <a href="{{url('/shop')}}" class="nav-link">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{url('/contact')}}" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{url('/login')}}" class="nav-link">Login</a>
+          </li>
+
+
          
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('/')}}">Home</a>
-          </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('/shop')}}">Shop</a>
-          </li>
-
-          <li class="nav-item dropdown"><a id="navbarDropdownMenuLink" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link">Categories<i class="fa fa-angle-down"></i></a>
-      <ul aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu">
-                 <?php  $cats = DB::table('categories')->get(); ?>
-                 @foreach($cats as $cat)
-                  <li><a href="{{url('/')}}/products/{{$cat->name}}" class="dropdown-item">{{ucwords($cat->name)}}</a></li>
-                @endforeach
-               </ul>
-                  </li> 
-
-          <li class="nav-item">
-            <a class="nav-link disabled" href="{{url('/contact')}}">Contact Us</a>
-          </li>
-
-          <li class="nav-item"><a class="nav-link" href="{{url('/WishList')}}"><i class="fa fa-star"></i> Wishlist <span style="color:green; font-weight:bold"> ({{App\wishList::count()}})</span> </a></li>
-           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
-            <?php if (Auth::check()) { ?>
+<!-- Start Of Dropdown of Cart Iems -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">{{Auth::user()->name}}</a>
-            <?php } ?>
-            <?php if (Auth::check()) { ?>
-              <a class="dropdown-item" href="{{url('/logout')}}">Logout</a>
-               <a class="dropdown-item" href="{{url('/')}}/profile">Profile</a>
-            <?php } else { ?>
-               <a class="dropdown-item" href="{{url('/login')}}">Login</a>
-               <?php } ?>
+              <?php  $cats = DB::table('categories')->get(); ?>
+                 @foreach($cats as $cat)
+              <a class="dropdown-item" href="{{url('/')}}/products/{{$cat->name}}">{{ucwords($cat->name)}}</a>
+
+               @endforeach
+          
             </div>
           </li>
 
-          <li class="nav-item"><a class="nav-link" href="{{url('/cart')}}"><i class="fa fa-shopping-cart">View Cart</i>({{Cart::count()}}) ({{Cart::total()}})</a></li>
 
-        </ul>
-        
+          <?php if (Auth::check()) { ?>
+                    <li nav-item><a href="{{url('/')}}/profile"><i class="fa fa-user"></i>{{Auth::user()->name}}</li>
+                 <?php } ?>
+            
+                <?php if (Auth::check()) { ?>
+                    <li class="dropdown-item"><a href="{{url('/logout')}}"><i class="fa fa-lock"></i> Logout</a></li>
+                
+                <?php } ?>
+                    </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="badge badge-secondary badge-pill"><i class="fa fa-shopping-cart"></i>{{Cart::count()}}</span></a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <div class="">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+
+            <span class="badge badge-secondary badge-pill"><i class="fa fa-shopping-cart"></i>{{Cart::count()}}</span>
+            <span class="text-muted">Total: ({{Cart::total()}})</span>
+            
+          </h4>
+
          
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+         
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Your cart</span>
+            
+          </h4>
+          <ul class="list-group mb-3">
+            <?php $cartItems = Cart::content();?>
+                @foreach($cartItems as $cartItem)
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div class="col-md-6">
+              <div>
+
+                
+                <img  class="dropdownimage" src="{{url('images',$cartItem->options->img)}}"  class="img-responsive dropdownimage" style="width:50px" />
+               
+
+               
+              </div>
+            </div>
+
+              <div class="col-md-6">
+              <h6 class="my-0">Name: {{$cartItem->name}}</h6>
+              <span class="text-muted">Price: {{$cartItem->price}}</span>
+            </br>
+              <small class="text-muted foat-right">Qty: {{$cartItem->qty}}</small>
+
+            </div>
+            </li>
+             @endforeach
+
+
+              <li class="list-group-item d-flex justify-content-between">
+
+              <a class="btn btn-primary" href="{{url('/')}}/checkout">Check Out</a>
+
+
+              <a class="btn btn-primary float-right" href="{{url('/cart')}}">View Cart</a>
+              
+            
+            </li> 
+          </ul>
+
+         
+           
+
+             
+            
+          
+        </div>
+
+        </div>
+           
+          </li>
+
+<!-- End of Dropdown Items Cart -->
+          
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>

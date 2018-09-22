@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+
 
     <title>Album example for Bootstrap</title>
 
@@ -56,7 +56,9 @@
     
     <link rel="stylesheet" href="{{asset('dist/css/album.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/custom.css')}}">
+    <link rel="stylesheet" href="{{asset('dist/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/carousel.css')}}">
+    <link rel="stylesheet" href="{{asset('dist/css/main.css')}}">
     <link href="{{asset('dist/css/bootstrap.css')}}" rel="stylesheet">
 
 
@@ -67,7 +69,7 @@
     <link href="{{asset('dist/css/prettyPhoto.css')}}" rel="stylesheet">
     <link href="{{asset('dist/css/price-range.css')}}" rel="stylesheet">
      <link href="{{asset('dist/css/animate.css')}}" rel="stylesheet">
-     <link href="{{asset('dist/css/main.css')}}" rel="stylesheet">
+      <link href="{{asset('dist/css/style.css')}}" rel="stylesheet">
      <link href="{{asset('dist/css/responsive.css')}}" rel="stylesheet">
      <script src="{{asset('dist/js/vendor/jquery.min.js')}}"></script>
    
@@ -110,7 +112,7 @@
 
    <script src="{{asset('dist/js/main.js')}}"></script>
 
-    
+
 
 
 
@@ -227,5 +229,12 @@
     
 
     @yield('scripts')
+
+
+
+    
+
+
+
   </body>
 </html>

@@ -59,6 +59,7 @@
                                 
                                   <!-- Wrapper for slides -->
                                     <div class="carousel-inner">
+                                      <div class="d-flex justify-content-between align-items-center">
                                         <div class="item active">
                                           <a href=""><img src="{{url('images',$product->image)}}" alt=""></a>
                                           
@@ -81,9 +82,10 @@
                                   <a class="right item-control" href="#similar-product" data-slide="next">
                                     <i class="fa fa-angle-right"></i>
                                   </a>
+                                  </div>
                             </div>
 
-
+    
 
 
 
@@ -102,18 +104,12 @@
  <p><b>Availability:</b>{{$product->stock}} In Stock</p>
  
 <button class="btn btn-primary btn-sm">
-<a href="{{url('/cart/addItem')}}/<?php echo $product->id; ?>" class="add-to-cart addcart">Add ToCart<i class="fa fa-shopping-cart"></i></a>
+<a href="{{url('/cart/addItem')}}/<?php echo $product->id; ?>" class="">Add ToCart<i class="fa fa-shopping-cart"></i></a>
 </button>
 
 <?php
-
  $wishData = DB::table('wishlist')->rightJoin('products','wishlist.pro_id', '=', 'products.id')->where('wishlist.pro_id', '=', $product->id)->get();
-
-
  $count = App\wishlist::where(['pro_id' => $product->id])->count();
-
-
-
   ?>
 
  <?php if($count=="0"){?>
