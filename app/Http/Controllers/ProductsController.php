@@ -15,11 +15,11 @@ use Illuminate\Http\Request;
 
 use Storage;
 
-
+use App\products_properties;
 
 use Image;
 
-use App\products_properties;
+
 
 
 class ProductsController extends Controller
@@ -234,11 +234,32 @@ public function destroy($id)
 
 
 
-       
+  public function addProperty($id) {
+
+
+        $Products = Product::findOrFail($id);
+
+        
+
+        return view('admin.product.addProperty', compact('Products'));
+    }
 
 
        
+  public function sumbitProperty(Request $request){
 
+    $properties = new products_properties;
+    $properties->pro_id = $request->pro_id;
+    $properties->size = $request->size;
+    $properties->color = $request->color;
+    $properties->p_price = $request->p_price;
+    $properties->save();
+
+    return redirect()->back();
+
+   
+
+  }
 
 
 

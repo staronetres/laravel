@@ -105,6 +105,10 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
     ]]);
 
+     Route::get('/addProperty{id}', 'ProductsController@addProperty')->name('addProperty');
+
+     Route::post('sumbitProperty','ProductsController@sumbitProperty')->name('sumbitProperty');
+
 });
 
 Route::get('/cart/addItem/{id}', 'HomeController@product_details');
