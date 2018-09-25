@@ -62,6 +62,7 @@ Route::get('/WishList', 'HomeController@View_wishList');
 
 Route::get('/removeWishList/{id}', 'HomeController@removeWishList');
 
+Route::get('/cart/update/{id}', 'CartController@update');
 
 
 
