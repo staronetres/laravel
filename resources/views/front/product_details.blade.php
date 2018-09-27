@@ -2,6 +2,32 @@
 
 @section('content')
 
+
+
+
+<script>
+$(document).ready(function(){
+  $('#size').change(function(){
+    var size = $('#size').val();
+    var proDum = $('#proDum').val();
+
+
+    $.ajax({
+        type: 'get',
+        dataType: 'html',
+        url: '<?php echo url('/selectSize');?>',
+        data: "size=" + size + "& proDum=" + proDum,
+        success: function (response) {
+            console.log(response);
+           $('#price').html(response);
+        }
+    });
+
+  });
+});
+
+</script>
+
 <br>
 <br>
 <br>
@@ -99,13 +125,47 @@
  <h2><?php echo ucwords($product->pro_name);?></h2>
  <h5>{{$product->pro_info}}</h5>
 
- <h2>${{$product->spl_price}}</h2>
+
+
+
+
+
+ <form action="{{url('/cart/addItem')}}/<?php echo $product->id; ?>">
+
+ <span id="price">${{$product->pro_price}}
+  
+  <input type="hidden" value="<?php echo $product->pro_price;?>" name="newPrice"/>
+
+ </span>
  </h2>
  <p><b>Availability:</b>{{$product->stock}} In Stock</p>
+
+ <?php $sizes = DB::table('products_properties')->where('pro_id',$product->id)->get(); ?>
+
+  <select name="size" id='size'>
+
+   @foreach ($sizes as $size)
+    <option>{{$size->size}}</option>
+
+   @endforeach
+
+  </select>
+
+
+
+
+  
  
-<button class="btn btn-primary btn-sm">
-<a href="{{url('/cart/addItem')}}/<?php echo $product->id; ?>" class="">Add ToCart<i class="fa fa-shopping-cart"></i></a>
+<button class="btn btn-fefault cart" id="addToCart">
+   <i class="fa fa-shopping-cart"></i>
+   Add to cart
 </button>
+
+
+<input type="hidden" value="<?php echo $product->id; ?>" id="proDum"/>
+
+
+</form>
 
 <?php
  $wishData = DB::table('wishlist')->rightJoin('products','wishlist.pro_id', '=', 'products.id')->where('wishlist.pro_id', '=', $product->id)->get();

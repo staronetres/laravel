@@ -18,13 +18,38 @@ class CartController extends Controller
         return view('cart.index', compact('cartItems'));
     }
 
-    public function addItem($id) {
+    // public function addItem($id) {
          // echo $id;
-         $product = Product::findOrFail($id);
+         // $product = Product::findOrFail($id);
          // $products = products::find($id);
 
          // Cart::add($id, $products->pro_name, 1, $products->pro_price);
-         Cart::add($id, $product->pro_name, 1, $product->pro_price, ['img' => $product->image, 'stock' => $product->stock]);
+    //      Cart::add($id, $product->pro_name, 1, $product->pro_price, ['img' => $product->image, 'stock' => $product->stock]);
+    //       return back();
+    // }
+
+
+     public function addItem(Request $request, $id) {
+         // echo $id;
+
+         $product = Product::find($id);
+
+         if(isset($request->newPrice)) 
+
+         {
+            $price = $request->newPrice; // if size selected
+         }
+
+         else{
+          $price = $products->pro_price; // default price
+         }
+
+
+
+         // $products = products::find($id);
+
+         // Cart::add($id, $products->pro_name, 1, $products->pro_price);
+         Cart::add($id, $product->pro_name, 1, $price, ['img' => $product->image, 'stock' => $product->stock]);
           return back();
     }
 

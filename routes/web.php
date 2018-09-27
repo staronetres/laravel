@@ -64,7 +64,12 @@ Route::get('/removeWishList/{id}', 'HomeController@removeWishList');
 
 Route::get('/cart/update/{id}', 'CartController@update');
 
+ Route::get('selectSize', 'HomeController@selectSize');
 
+
+
+
+ 
 
 Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 

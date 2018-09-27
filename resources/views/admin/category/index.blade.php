@@ -8,6 +8,10 @@
 <br>
 <br>
 
+<br>
+<br>
+<br>
+<br>
 
 <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
 
@@ -18,6 +22,15 @@
 <br>
 <br>
     <div class="col-md-6">
+        <br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
 <h3>Categories</h3>
 
 <table class="table table-dark">
@@ -72,6 +85,16 @@
   
 
       <div class="col-md-4">
+
+        <br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
            <div class="card card-body bg-success text-white py-5">
        <h2>Create Category</h2>
        <p class="lead">Lorem Ipsum has been the industry's standard dummy text ever since the</p>

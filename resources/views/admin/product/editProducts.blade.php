@@ -100,6 +100,13 @@
 
 <div class="col-md-3">
 
+  
+   <br>
+<br>
+<br>
+<br> 
+
+
   <div align="center">  
 
     <a href="{{route('addProperty',$Products->id)}}" class="btn btn-sm btn-info" style="margin:5px">Add Property</a>
