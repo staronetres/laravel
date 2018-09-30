@@ -136,8 +136,10 @@ public function ProductEditForm($id) {
 
         $Products = Product::findOrFail($id);
         $categories = Category::all();
+
+        $prots = products_properties::all();
     
-        return view('admin.product.editProducts', compact('Products', 'categories'));
+        return view('admin.product.editProducts', compact('Products', 'categories', 'prots'));
     }
 
 
@@ -262,6 +264,17 @@ public function destroy($id)
   }
 
 
+ public function editProperty(Request $request){
+         $uptProts = DB::table('products_properties')
+          ->where('pro_id', $request->pro_id)
+          ->where('id', $request->id)
+          ->update($request->except('_token'));
+          if($uptProts){
+          return back()->with('msg', 'updated');
+        }else {
+        return back()->with('msg', 'check value again');
+      }
+  }
 
 
 
