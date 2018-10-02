@@ -13,6 +13,10 @@
           <li class="nav-item">
             <a href="{{url('/contact')}}" class="nav-link">Contact</a>
           </li>
+
+         <li class="nav-item">
+            <a href="{{url('/newArrival')}}" style="background:red; color:#fff" class="nav-link">newArrival</a>
+          </li>
           <li class="nav-item">
             <a href="{{url('/login')}}" class="nav-link">Login</a>
           </li>

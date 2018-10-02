@@ -100,6 +100,11 @@
                </div>
 
 
+               <div class="form-group">
+                 New Arrival: <p class="pull-right"><input type="checkbox" name="new_arrival" value="1"></p>
+               </div>
+
+
 
                             
             {{ Form::submit('Update', array('class' => 'btn btn-default')) }}

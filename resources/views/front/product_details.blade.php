@@ -132,9 +132,31 @@ $(document).ready(function(){
 
  <form action="{{url('/cart/addItem')}}/<?php echo $product->id; ?>">
 
- <span id="price">${{$product->pro_price}}
+
+ @if($product->spl_price ==0)
+
+ <span id="price">
+
+  ${{$product->pro_price}}
   
   <input type="hidden" value="<?php echo $product->pro_price;?>" name="newPrice"/>
+
+
+  @else
+
+
+  <div class="d-flex justify-content-between align-items-center">
+
+          <input type="hidden" value="<?php echo $product->spl_price;?>" name="newPrice"/>
+            <p class="" style="text-decoration:line-through; color:#333">${{$product->spl_price}}</p>
+             <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="..."  style="width:60px">
+             <p class="">${{$product->pro_price}}</p>
+
+             
+           </div>
+
+
+  @endif
 
  </span>
  </h2>
@@ -152,7 +174,9 @@ $(document).ready(function(){
   </select>
 
 
-
+   @if($product->new_arrival==1)
+   <img src="{{URL::asset('dist/images/product-details/new.jpg')}}" alt="...">
+    @endif
 
   
  

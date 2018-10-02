@@ -3,6 +3,8 @@
 
 @section('content')
 
+
+
 <script>
  $(document).ready(function(){
 
@@ -40,18 +42,12 @@
 
 </script>
 
-
-
-
  <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
 <h3>Products</h3>
 
 <ul>
 
-   <br>
-<br>
-<br>
-<br> 
+    
 
 
 
@@ -61,58 +57,73 @@
             <thead>
                 <tr>
                     <th>Image</th>
+                
                     <th>Product Id</th>
                     <th>Product Name</th>
                     <th>Product Code</th>
                     <th>Product Price</th>
                     <th>Category Id</th>
                     <th>On Sale</th>
-                    <th>Update</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
 
             <tbody>
 
-                <?php $count = 1;?>
+
+               <?php $count =1;?>
                @foreach($Products as $product)
+
+
+             
                 <tr>
                     <td style="width:50px; border: 1px solid #333;"><img class="card-img-top img-fluid" src="{{url('images',$product->image)}}" width="50px" alt="Card image cap"></td>
+
+                   
                     <td style="width:50px;">{{$product->id}} </td>
+                  
                     <td style="width:50px;">{{$product->pro_name}} </td>
                     <td style="width:50px;">{{$product->pro_code}} </td>
                     <td style="width:50px;">{{$product->pro_price}} </td>
                     <td style="width:50px;">{{$product->category_id}}</td>
-                    <td style="width:50px;">{{$product->category_id}}</td>
+                    <td >
 
-                    <td>
-                    <div id="checkSale<?php echo $count;?>">
+                       <div id="checkSale<?php echo $count;?>">
                         <input type="checkbox" id="onSale<?php echo $count;?>"> Yes
 
                        </div>
 
                        <div id="amountDiv<?php echo $count;?>">
-
-
-                        <input type="hidden" id="pro_id<?php echo $count;?>" value="{{$product->id}}"/>
-
+                         
+                         <input type="hidden" id="pro_id<?php echo $count;?>" value="{{$product->id}}"/>
                          <input type="checkbox" id="noSale<?php echo $count;?>"> No<br>
 
 
-                        <input type="text" id="spl_price<?php echo $count;?>" size="12" value="12" placeholder="Sale Price"/><br>
+                         <input type="text" id="spl_price<?php echo $count;?>" size="12" placeholder="Sale Price"/><br>
 
-                        <button type="submit" id="saveAmount<?php echo $count;?>" class="btn btn-success">Save Amount</button>
+                         <button id="saveAmount<?php echo $count;?>" class="btn btn-success">Save Amount</button>
                        </div>
 
                     </td>
-                    {!! Form::open(['method'=>'DELETE', 'action'=> ['ProductsController@destroy', $product->id]]) !!}
+                    <td><a href="{{route('ProductEditForm',$product->id)}}" class="btn btn-success btn-small">Edit</a></td>
 
 
-                      <td>  {!! Form::submit('Delete Product', ['class'=>'btn btn-danger col-sm-6']) !!}</td> 
+                   {!! Form::open(['method'=>'DELETE', 'action'=> ['ProductsController@destroy', $product->id]]) !!}
 
-                    {!! Form::close() !!}
+
+                  <td>  {!! Form::submit('Delete Product', ['class'=>'btn btn-danger col-sm-6']) !!}</td> 
+
+
+
+                  {!! Form::close() !!}
+                
                 </tr>
+
                 <?php $count++;?>
                 @endforeach
+
+                
             </tbody>
         </table>
 

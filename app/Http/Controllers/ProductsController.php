@@ -164,7 +164,11 @@ public function editProducts(Request $request, $id) {
         $pro_info = $request->pro_info;
         $spl_price = $request->spl_price;
       
-
+        if($request->new_arrival =='NULL'){
+          $new_arrival = '1';
+        }else {
+          $new_arrival = $request->new_arrival;
+        }
         
 
         DB::table('products')->where('id', $proid)->update([
@@ -173,8 +177,8 @@ public function editProducts(Request $request, $id) {
             'pro_code' => $pro_code,
             'pro_price' => $pro_price,
             'pro_info' => $pro_info,
-            'spl_price' => $spl_price
-           
+            'spl_price' => $spl_price,
+             'new_arrival' => $new_arrival
 
         ]);
 

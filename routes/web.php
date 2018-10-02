@@ -133,6 +133,8 @@ Route::put('/cart/update/{id}', 'CartController@update');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
+Route::get('/newArrival', 'HomeController@newArrival');
+
 //Star Wars
 
 
