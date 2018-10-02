@@ -12,12 +12,12 @@
 
 @section('content')
 
-<div class="row">
+
 
 <div class="container">
 
-
-<div class="col-md-6">
+<div class="row">
+<div class="col-md-4">
 <h1>Hello Everybody</h1>
 
 

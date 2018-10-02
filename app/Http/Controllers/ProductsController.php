@@ -277,7 +277,17 @@ public function destroy($id)
   }
 
 
+  public function addSale(Request $request){
 
+
+
+   $salePrice = $request->salePrice;
+      $pro_id = $request->pro_id;
+      DB::table('products')->where('id', $pro_id)->update(['spl_price' => $salePrice]);
+      echo 'added successfully';
+
+  
+    }
 
     
 
